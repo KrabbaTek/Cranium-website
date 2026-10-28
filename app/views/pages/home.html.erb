@@ -4,7 +4,7 @@
 </h1>
 
 <p>
-  There's more than one way to do packages.
+  There's <%= link_to "more than one way", "/thesis" %> to do packages.
 </p>
 
 <h2>
@@ -16,6 +16,10 @@
 
   <%= form.submit "Search" %>
 <% end %>
+
+<p>
+  Or, <%= link_to "explore", explore_packages_path %> all the packages
+</p>
 
 <h2>
   If you're here to upload a package, then log in or sign up below.

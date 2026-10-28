@@ -5,11 +5,13 @@ Rails.application.routes.draw do
 
   root "pages#home"
 
-  get "search/", to: "packages#search", as: :search
+  get "/thesis", to: "pages#thesis"
+
+  get "/search", to: "packages#search", as: :search
 
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  delete "/logout", to: "sessions#destroy", as: :logout
 
   get "/signup", to: "users#new", as: :signup
   post "/users", to: "users#create"
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
   get "/users/home", to: "users#home", as: :user_home
 
   get "/packages/user", to: "packages#show", as: :user_packages
+
+  get "/packages/explore", to: "packages#index", as: :explore_packages
 
   scope "/api" do
     # TODO: this
