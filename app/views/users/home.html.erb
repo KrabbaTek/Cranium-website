@@ -1,0 +1,23 @@
+
+<h1>Hey, <%= @greeting %>!</h1>
+
+<p>
+  What are you trying to do?
+</p>
+
+<%= link_to 'Publish a new package', "" %>
+<%= link_to 'See your packages', "" %>
+
+<button id="fun-fact">Get a fun fact</button>
+
+<strong id="fun-fact-display">
+</strong>
+
+<script>
+  document.getElementById("fun-fact").addEventListener("click", () => {
+      var funFacts = [""]
+      var randomItem = funFacts[Math.floor(Math.random() * funFacts.length)]
+
+      document.getElementById("fun-fact-display").innerHTML = randomItem
+  })
+</script>

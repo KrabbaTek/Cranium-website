@@ -1,0 +1,27 @@
+<h1>
+  Sign up
+</h1>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with url: "/users" do |form| %>
+  <%= form.label :name %> <br>
+  <%= form.text_field :name, autofocus: true %> <br>
+  
+  <%= form.label :email %> <br>
+  <%= form.email_field :email %> <br>
+
+  <%= form.label :password %> <br>
+  <%= form.password_field :password %> <br>
+
+  <br>
+  <%= form.submit "Create Account" %>
+<% end %>
+
+<%= link_to "Back", root_path %>

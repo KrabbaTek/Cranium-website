@@ -1,0 +1,11 @@
+<h1>Search results</h1>
+
+<% if @packages.empty? %>
+  <p>No results were found.</p>
+<% end %>
+
+<% @packages.each do |package| %>
+  <p>
+    <%= package.name %>
+  </p>
+<% end %>

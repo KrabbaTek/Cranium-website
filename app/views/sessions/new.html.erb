@@ -1,0 +1,18 @@
+<h1>
+  Log in
+</h1>
+
+<%= flash[:alert] %>
+
+<%= form_with url: "/login" do |form| %>
+  <%= form.label :email %> <br>
+  <%= form.email_field :email, autofocus: true %> <br>
+
+  <%= form.label :password %> <br>
+  <%= form.password_field :password %> <br>
+
+  <br>
+  <%= form.submit "Sign in" %>
+<% end %>
+
+<%= link_to "Back", root_path %>

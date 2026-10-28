@@ -1,0 +1,25 @@
+
+<h1 id="title">
+  Cranium
+</h1>
+
+<p>
+  There's more than one way to do packages.
+</p>
+
+<h2>
+  Find a package below
+</h2>
+
+<%= form_with url: search_path, method: :get do |form| %>
+  <%= form.text_field :name %>
+
+  <%= form.submit "Search" %>
+<% end %>
+
+<h2>
+  If you're here to upload a package, then log in or sign up below.
+</h2>
+
+<%= link_to "Log in", login_path %>
+<%= link_to "Sign up", signup_path %>
