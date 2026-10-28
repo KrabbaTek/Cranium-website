@@ -1,3 +1,30 @@
 <h1>Browse packages</h1>
 
 <%= link_to "Back", root_path %>
+
+<% @packages.each do |package| %>
+  <p>
+    <%= package.name %>
+  </p>
+
+  <p>
+    <%= package.description %>
+  </p>
+
+  <p>
+    <%= package.downloads_count %> downloads
+  </p>
+
+  <p>
+    See the source code for this project <%= link_to "here", package.github_url %>
+  </p>
+
+  <p>
+    <%# TODO: this; add a download button %>
+    Download source code placeholder
+  </p>
+
+  <%# TODO: add a section to see commands for this package
+  When a button is clicked, show a div containing custom commands to do things like download the package.
+  %>
+<% end %>

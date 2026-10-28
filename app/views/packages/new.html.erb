@@ -12,7 +12,10 @@
   <%= form.label :description, "Can you tell me a bit about this library?" %> <br>
   <%= form.text_area :description %> <br>
 
-  <%#
-  TODO: Add a field for the GitHub url
-  %>
+  <br>
+  <%= form.label :github_url, "Provide a link to this project's GitHub repository" %> <br>
+  <%= form.text_field :github_url %> <br>
+
+  <br>
+  <%= form.submit "Create and publish" %>
 <% end %>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get "/thesis", to: "pages#thesis"
 
+  get "/tutorial", to: "pages#tutorial"
+
   get "/search", to: "packages#search", as: :search
 
   get "/login", to: "sessions#new", as: :login

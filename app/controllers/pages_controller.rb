@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def thesis
   end
+
+  def tutorial
+  end
 end

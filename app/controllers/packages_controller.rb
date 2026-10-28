@@ -13,7 +13,22 @@ class PackagesController < ApplicationController
   end
 
   def create
-    # TODO: this
+    @package = Package.new(
+      name: params[:name],
+      description: params[:description],
+      github_url: params[:github_url],
+      user_id: current_user.id,
+      downloads_count: 0
+    )
+
+    if @package.save
+      flash[:success] = "Created and published your new package #{params[:name]}!"
+      redirect_to root_path
+    else
+      # flash[:error] = "Something went wrong when trying to create your package."
+      flash[:error] = @package.errors.full_messages.to_sentence
+      redirect_to new_package_path
+    end
   end
 
   def index

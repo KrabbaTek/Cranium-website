@@ -6,10 +6,7 @@ class Package < ApplicationRecord
   # I made this unique to prevent people from just copying and pasting the same prompt for each package.
   validates :description, presence: true, uniqueness: true, length: { minimum: 96, maximum: 1704 }
 
-  # ensures the given string is actually a link
-  # since it has to be a GitHub url we could make our own regex but this works for now
-  # TODO do that ^^^
-  validates :github_url, presence: true, uniqueness: true, format: { with: URI.regexp(%w[http https]) }
+  validates :github_url, presence: true, format: { with: /github\.com/ }
 
   belongs_to :user
 end
