@@ -1,17 +1,18 @@
 <h1>
-  It looks like you want to create a package. That's great! Just answer these questions.
+  Answer these questions to publish a package
 </h1>
 
 <%= form_with url: create_package_path do |form| %>
   <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <%= form.label :name, "What's this package called?" %>
-  <%= form.text_field :name %>
+  <%= form.label :name, "What's this package called?" %> <br>
+  <%= form.text_field :name %> <br>
 
-  <%= form.label :description, "Can you tell me a bit about this?" %>
-  <%= form.text_area :description %>
+  <br>
+  <%= form.label :description, "Can you tell me a bit about this library?" %> <br>
+  <%= form.text_area :description %> <br>
 
-  <%= %>
-
-  <%= %>
+  <%#
+  TODO: Add a field for the GitHub url
+  %>
 <% end %>

@@ -1,0 +1,11 @@
+<h1>
+  Your packages
+</h1>
+
+<% if @packages.empty? %>
+  <p>
+    You haven't published any packages yet. You can publish a package <%= link_to "here", new_package_path %>
+  </p>
+<% end %>
+
+<%= link_to "Back", user_home_path %>

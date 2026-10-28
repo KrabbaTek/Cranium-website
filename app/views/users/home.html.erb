@@ -5,9 +5,11 @@
   What are you trying to do?
 </p>
 
-<%= link_to 'Publish a new package', "" %>
-<%= link_to 'See your packages', "" %>
+<%= link_to 'Publish a new package', new_package_path %>
+<%= link_to 'See your packages', user_packages_path %>
 
+<br>
+<br>
 <button id="fun-fact">Get a fun fact</button>
 
 <strong id="fun-fact-display">
@@ -19,5 +21,7 @@
       var randomItem = funFacts[Math.floor(Math.random() * funFacts.length)]
 
       document.getElementById("fun-fact-display").innerHTML = randomItem
+
+      console.log("Random item:" + randomItem)
   })
 </script>
