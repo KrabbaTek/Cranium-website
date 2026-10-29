@@ -2,7 +2,7 @@
   Answer these questions to publish a package
 </h1>
 
-<%= form_with url: create_package_path do |form| %>
+<%= form_with model: @package, url: create_package_path do |form| %>
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   <%= form.label :name, "What's this package called?" %> <br>
@@ -15,6 +15,10 @@
   <br>
   <%= form.label :github_url, "Provide a link to this project's GitHub repository" %> <br>
   <%= form.text_field :github_url %> <br>
+
+  <br>
+  <%= form.label :tarball, "Upload a tarball of this package's source code" %> <br>
+  <%= form.file_field :tarball, accept: ".tar.gz" %> <br>
 
   <br>
   <%= form.submit "Create and publish" %>

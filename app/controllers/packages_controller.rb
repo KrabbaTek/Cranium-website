@@ -10,15 +10,12 @@ class PackagesController < ApplicationController
   end
 
   def new
+    @package = Package.new
   end
 
   def create
     @package = Package.new(
-      name: params[:name],
-      description: params[:description],
-      github_url: params[:github_url],
-      user_id: current_user.id,
-      downloads_count: 0
+      package_params.merge(user_id: current_user.id, downloads_count: 0)
     )
 
     if @package.save
@@ -40,5 +37,11 @@ class PackagesController < ApplicationController
   def show
     @packages = Package.find_by user_id: current_user.id
     @packages ||= []
+  end
+
+  private
+
+  def package_params
+    params.require(:package).permit(:name, :description, :github_url, :tarball)
   end
 end

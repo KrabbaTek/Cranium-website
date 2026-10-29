@@ -9,4 +9,14 @@ class Package < ApplicationRecord
   validates :github_url, presence: true, format: { with: /github\.com/ }
 
   belongs_to :user
+
+  has_one_attached :tarball
+
+  validate :tarball_is_tar_gz
+
+  def tarball_is_tar_gz
+    if tarball.attached? && !tarball.filename.to_s.end_with?(".tar.gz")
+      errors.add(:tarball, "File must be a .tar.gz file")
+    end
+  end
 end
