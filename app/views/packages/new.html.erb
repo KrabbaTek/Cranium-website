@@ -2,7 +2,7 @@
   Answer these questions to publish a package
 </h1>
 
-<%= form_with model: @package, url: create_package_path do |form| %>
+<%= form_with model: @package, url: create_package_path, multipart: true do |form| %>
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   <%= form.label :name, "What's this package called?" %> <br>

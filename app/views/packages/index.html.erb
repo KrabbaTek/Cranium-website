@@ -19,10 +19,7 @@
     See the source code for this project <%= link_to "here", package.github_url %>
   </p>
 
-  <p>
-    <%# TODO: this; add a download button %>
-    Download source code placeholder
-  </p>
+  <%= link_to "Download the raw tarball", url_for(package.tarball) %>
 
   <%# TODO: add a section to see commands for this package
   When a button is clicked, show a div containing custom commands to do things like download the package.
