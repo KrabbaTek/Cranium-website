@@ -1,7 +1,7 @@
 class PackagesController < ApplicationController
+  before_action :require_login, only: %i[ new create show ]
   def search
-    @packages = Package.find_by name: params[:name].downcase
-    @packages ||= []
+    @packages = Package.where("name LIKE ?", "%#{params[:name].downcase}%")
   end
 
   # show the details for a given task

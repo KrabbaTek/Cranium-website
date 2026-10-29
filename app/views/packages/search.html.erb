@@ -1,11 +1,33 @@
 <h1>Search results</h1>
 
+<%= link_to "Back", root_path %>
+
+
 <% if @packages.empty? %>
   <p>No results were found.</p>
 <% end %>
 
 <% @packages.each do |package| %>
-  <p>
+  <strong>
     <%= package.name %>
+  </strong>
+
+  <p>
+    <%= package.description %>
   </p>
+
+  <p>
+    <%= package.downloads_count %> downloads
+  </p>
+
+  <p>
+    See the source code for this project <%= link_to "here", package.github_url %>
+  </p>
+
+  <%= link_to "Download the raw tarball", url_for(package.tarball) %>
+
+  <%# TODO: add a section to see commands for this package
+  When a button is clicked, show a div containing custom commands to do things like download the package.
+  %>
+  <hr>
 <% end %>

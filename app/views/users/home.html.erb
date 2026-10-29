@@ -16,12 +16,22 @@
 <br>
 <button id="fun-fact">Get a fun fact</button>
 
+<br>
 <strong id="fun-fact-display">
 </strong>
 
 <script>
   document.getElementById("fun-fact").addEventListener("click", () => {
-      var funFacts = [""]
+      var funFacts = ["The Swedish parliament is called riksdag and it has 349 members in a single chamber.",
+      "Sweden is so long that it’s possible for northern parts to have snow on the ground despite the south being in bloom.",
+      "In Norway, the lake Hornindalsvatnet is the deepest lake in Europe.",
+      "Located in Norway, Sognefjorden is the world’s second deepest fjord.",
+      "Denmark is one of the happiest countries in the world according to the UN world happiness report.",
+      "The Danish flag “Dannebrog” is the world’s oldest flag, being first acknowledged in 1219.",
+      "Around 75% of Finland’s surface area is covered with forests, and Finland is home to the world’s largest archipelago.",
+      "In Helsinki, 11 out of 12 lost wallets are returned to their owners."
+      ]
+
       var randomItem = funFacts[Math.floor(Math.random() * funFacts.length)]
 
       document.getElementById("fun-fact-display").innerHTML = randomItem

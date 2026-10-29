@@ -3,9 +3,9 @@
 <%= link_to "Back", root_path %>
 
 <% @packages.each do |package| %>
-  <p>
+  <strong>
     <%= package.name %>
-  </p>
+  </strong>
 
   <p>
     <%= package.description %>
@@ -24,4 +24,5 @@
   <%# TODO: add a section to see commands for this package
   When a button is clicked, show a div containing custom commands to do things like download the package.
   %>
+  <hr>
 <% end %>
