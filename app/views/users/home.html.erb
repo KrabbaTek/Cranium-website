@@ -21,6 +21,12 @@
 </strong>
 
 <script>
+  const getRandomItem = (funFacts) => {
+      return funFacts[Math.floor(Math.random() * funFacts.length)]
+  }
+
+  var lastRandomItem = ""
+
   document.getElementById("fun-fact").addEventListener("click", () => {
       var funFacts = ["The Swedish parliament is called riksdag and it has 349 members in a single chamber.",
       "Sweden is so long that it’s possible for northern parts to have snow on the ground despite the south being in bloom.",
@@ -32,10 +38,14 @@
       "In Helsinki, 11 out of 12 lost wallets are returned to their owners."
       ]
 
-      var randomItem = funFacts[Math.floor(Math.random() * funFacts.length)]
+      var randomItem = getRandomItem(funFacts)
 
+      // prevent duplicates. Not that serious but it feels like the website is broken which I don't want.
+      while (randomItem === lastRandomItem) {
+          randomItem = getRandomItem(funFacts)
+      }
+
+      lastRandomItem = randomItem
       document.getElementById("fun-fact-display").innerHTML = randomItem
-
-      console.log("Random item:" + randomItem)
   })
 </script>

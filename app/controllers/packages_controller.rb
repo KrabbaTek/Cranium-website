@@ -35,8 +35,7 @@ class PackagesController < ApplicationController
   end
 
   def show
-    @packages = Package.find_by user_id: current_user.id
-    @packages ||= []
+    @packages = Package.where user_id: current_user.id
   end
 
   private
