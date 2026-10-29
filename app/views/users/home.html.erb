@@ -11,7 +11,9 @@
 
 <br>
 <br>
-<%= link_to "Log out", logout_path, data: { turbo_method: :delete } %>
+<%= link_to "Log out", logout_path, data: { turbo_method: :delete } %> <p>
+  (go back to the homepage)
+</p>
 
 <br>
 <br>
@@ -22,31 +24,40 @@
 </strong>
 
 <script>
-  const getRandomItem = (funFacts) => {
-      return funFacts[Math.floor(Math.random() * funFacts.length)]
-  }
+  document.addEventListener("turbo:load", () => {
 
-  var lastRandomItem = ""
+    var funFactButton = document.getElementById("fun-fact")
+    if (!funFactButton) {
+        return
+    }
 
-  document.getElementById("fun-fact").addEventListener("click", () => {
-      var funFacts = ["The Swedish parliament is called riksdag and it has 349 members in a single chamber.",
-      "Sweden is so long that it’s possible for northern parts to have snow on the ground despite the south being in bloom.",
-      "In Norway, the lake Hornindalsvatnet is the deepest lake in Europe.",
-      "Located in Norway, Sognefjorden is the world’s second deepest fjord.",
-      "Denmark is one of the happiest countries in the world according to the UN world happiness report.",
-      "The Danish flag “Dannebrog” is the world’s oldest flag, being first acknowledged in 1219.",
-      "Around 75% of Finland’s surface area is covered with forests, and Finland is home to the world’s largest archipelago.",
-      "In Helsinki, 11 out of 12 lost wallets are returned to their owners."
-      ]
+    const getRandomItem = (funFacts) => {
+        return funFacts[Math.floor(Math.random() * funFacts.length)]
+    }
 
-      var randomItem = getRandomItem(funFacts)
+    var lastRandomItem = ""
 
-      // prevent duplicates. Not that serious but it feels like the website is broken which I don't want.
-      while (randomItem == lastRandomItem) {
-          randomItem = getRandomItem(funFacts)
-      }
+    document.getElementById("fun-fact").addEventListener("click", () => {
+        var funFacts = ["The Swedish parliament is called riksdag and it has 349 members in a single chamber.",
+        "Sweden is so long that it’s possible for northern parts to have snow on the ground despite the south being in bloom.",
+        "In Norway, the lake Hornindalsvatnet is the deepest lake in Europe.",
+        "Located in Norway, Sognefjorden is the world’s second deepest fjord.",
+        "Denmark is one of the happiest countries in the world according to the UN world happiness report.",
+        "The Danish flag “Dannebrog” is the world’s oldest flag, being first acknowledged in 1219.",
+        "Around 75% of Finland’s surface area is covered with forests, and Finland is home to the world’s largest archipelago.",
+        "In Helsinki, 11 out of 12 lost wallets are returned to their owners."
+        ]
 
-      lastRandomItem = randomItem
-      document.getElementById("fun-fact-display").innerHTML = randomItem
+        var randomItem = getRandomItem(funFacts)
+
+        // prevent duplicates. Not that serious but it feels like the website is broken which I don't want.
+        while (randomItem == lastRandomItem) {
+            randomItem = getRandomItem(funFacts)
+        }
+
+        lastRandomItem = randomItem
+        document.getElementById("fun-fact-display").innerHTML = randomItem
+    })
   })
+
 </script>

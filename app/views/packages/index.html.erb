@@ -7,7 +7,7 @@
     <%= package.name %>
   </strong>
 
-  <p>
+  <p class="description">
     <%= package.description %>
   </p>
 
@@ -21,8 +21,18 @@
 
   <%= link_to "Download the raw tarball", url_for(package.tarball) %>
 
-  <%# TODO: add a section to see commands for this package
-  When a button is clicked, show a div containing custom commands to do things like download the package.
-  %>
+  <br>
+  <h3>Commands:</h3>
+  <div data-controller="commands">
+    <button type="button" data-action="commands#toggle">Show commands</button>
+    <div data-commands-target="panel" hidden>
+      <p>install:</p>
+      <pre>cranium get <%= package.name %></pre>
+      <p>git clone:</p>
+      <pre>cranium tear-apart <%= package.name %></pre>
+      <p>delete (if you installed it)</p>
+      <pre>cranium execute <%= package.name %></pre>
+    </div>
+  </div>
   <hr>
 <% end %>

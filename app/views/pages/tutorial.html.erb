@@ -1,2 +1,130 @@
 <h1>Learn how to use Cranium</h1>
 
+<%= link_to "Back", root_path %>
+
+<p>
+  Cranium has a pretty hefty list of commands. I'll start out with the basic ones.
+</p>
+
+<p>
+  At the end, I'll go over the aliases for these commands.
+</p>
+
+<h3>
+  Install
+</h3>
+
+<pre>
+  cranium install suomi-lib
+</pre>
+
+<h3>Delete</h3>
+
+<pre>
+  cranium delete suomi-lib
+</pre>
+
+<p>
+  Beyond the basics, Cranium offers some nice commands. Here are the rest:
+</p>
+
+<h3>Omakase</h3>
+
+<p>
+  This provides a list of the top five most popular packages for today
+  (refreshes every 24 hours)
+</p>
+
+<pre>cranium omakase</pre>
+
+<h3>wipe</h3>
+
+<p>
+  This will delete every package you've ever installed with Cranium:
+</p>
+
+<pre>cranium wipe</pre>
+
+<p>You can also pass a timeframe using this syntax: older/younger than (x) days</p>
+
+<pre>cranium wipe older than 3 days</pre>
+
+<p>Or,</p>
+
+<pre>cranium wipe younger than 4 days</pre>
+
+<h3>Tear apart</h3>
+
+<p>
+  This is used to inspect the source code of a package. <br>
+  More specifically, it git clones into the project.
+</p>
+
+<pre>cranium tear-apart suomi-lib</pre>
+
+<p>You do not need to have the package installed to do this.</p>
+
+<h3>list</h3>
+
+<p>Provides a list of all your packages</p>
+
+<pre>cranium list</pre>
+
+<p>Like wipe, you can pass a timeframe argument to be more specific:</p>
+
+<pre>cranium list older than 5 days</pre>
+
+<h3>Fun fact</h3>
+
+<p>
+  And to top it all off, you can use fun-fact to get a random nordic fun fact:
+</p>
+
+<pre>
+  cranium fun-fact
+</pre>
+
+<h2>TIMTOWTDI</h2>
+<p>
+  Cranium is a firm believer that there is more than one way to do it. <br>
+  For almost every command, there are multiple aliases you can use. Here are all of them: <br>
+</p>
+
+<strong>install:</strong>
+<ul>
+  <li>fetch</li>
+  <li>retrieve</li>
+  <li>get</li>
+  <li>grab</li>
+  <li>g</li>
+</ul>
+
+<strong>omakase</strong>
+<ul>
+  <li>menu</li>
+</ul>
+
+<strong>massacre</strong>
+<ul>
+  <li>annihilate</li>
+  <li>wipe</li>
+</ul>
+
+<strong>delete</strong>
+<ul>
+  <li>slay</li>
+  <li>eradicate</li>
+  <li>remove</li>
+  <li>execute</li>
+</ul>
+
+<strong>list</strong>
+<ul>
+  <li>my-packages</li>
+  <li>packages</li>
+</ul>
+
+<p>Anything not mentioned above does not have any aliases.</p>
+
+<%= link_to "Back", root_path %>
+

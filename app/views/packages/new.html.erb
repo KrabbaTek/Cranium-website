@@ -20,14 +20,16 @@
   <%= form.text_field :github_url %> <br>
 
   <br>
-  <%= form.label :tarball, "Upload a tarball of this package's source code" %>
-  <button id="tarball-help" type="button">Don't know how to tarball?</button>  <br>
+  <%= form.label :tarball, "Upload a tarball of this package's source code" %> <br>
+  <button id="tarball-help" type="button">Don't know how to tarball?</button> <br>
+  <br>
   <%= form.file_field :tarball, accept: ".tar.gz" %> <br>
 
   <br>
   <div id="tarball-help-text" hidden>
     <p>
-      To tarball a file, `cd` into the directory it is in and then run this command: <br>
+      To tarball a file, `cd` into the directory it is in <br>
+      and then run this command: <br>
       `tar -czvf (your_file_name).tar.gz (your_file_name)`
     </p>
   </div>
