@@ -6,6 +6,7 @@
 </p>
 
 <%= link_to 'Publish a new package', new_package_path %>
+<br>
 <%= link_to 'See your packages', user_packages_path %>
 
 <br>
@@ -41,7 +42,7 @@
       var randomItem = getRandomItem(funFacts)
 
       // prevent duplicates. Not that serious but it feels like the website is broken which I don't want.
-      while (randomItem === lastRandomItem) {
+      while (randomItem == lastRandomItem) {
           randomItem = getRandomItem(funFacts)
       }
 
