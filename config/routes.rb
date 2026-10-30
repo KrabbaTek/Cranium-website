@@ -27,17 +27,17 @@ Rails.application.routes.draw do
 
   get "/packages/explore", to: "packages#index", as: :explore_packages
 
-  scope "/api" do
+  namespace :api do
     # install
-    # get "" # TODO this
+    get "/install/:name", to: "packages#install"
 
     # omakase
-    # TODO this
+    get "/omakase", to: "packages#omakase"
 
     # random
-    get "packages/random", to: "packages#random"
+    get "/packages/random", to: "packages#random"
 
     # clone
-    get "packages/clone/:name", to: "packages#clone_library"
+    get "/packages/clone/:name", to: "packages#clone_library"
   end
 end

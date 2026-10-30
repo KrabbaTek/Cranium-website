@@ -13,10 +13,22 @@ class Package < ApplicationRecord
   has_one_attached :tarball
 
   validate :tarball_is_tar_gz
+  validate :name_is_valid
 
   def tarball_is_tar_gz
     if tarball.attached? && !tarball.filename.to_s.end_with?(".tar.gz")
       errors.add(:tarball, "File must be a .tar.gz file")
+    end
+  end
+
+  # ensure the package name doesn't have any numbers or special characters
+  def name_is_valid
+    if name.match? /\d/
+      errors.add(:name, "Name must not contain any numbers")
+    end
+
+    if name.match? /[^\p{L}\s]/
+      errors.add(:name, "Name must not contain any special characters")
     end
   end
 end

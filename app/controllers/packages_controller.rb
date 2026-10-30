@@ -38,27 +38,6 @@ class PackagesController < ApplicationController
     @packages = Package.where user_id: current_user.id
   end
 
-  # TODO: separate these methods into a different module/controller
-
-  def random
-    @package = Package.all.sample
-
-    response = {
-      name: @package.name,
-      description: @package.description,
-      github_url: @package.github_url
-    }
-
-    render json: response
-  end
-
-  def clone_library
-    # we can do this because names are unique!
-    @package = Package.find_by name: params[:name]
-
-    render json: { github_url: @package.github_url }
-  end
-
   private
 
   def package_params
