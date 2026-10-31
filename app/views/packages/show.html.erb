@@ -11,27 +11,5 @@
 <%= link_to "Back", user_home_path %>
 
 <br>
-<% @packages.each do |package| %>
-  <strong>
-    <%= package.name %>
-  </strong>
 
-  <p class="description">
-    <%= package.description %>
-  </p>
-
-  <p>
-    <%= package.downloads_count %> downloads
-  </p>
-
-  <p>
-    See the source code for this project <%= link_to "here", package.github_url %>
-  </p>
-
-  <%= link_to "Download the raw tarball", url_for(package.tarball) %>
-
-  <%# TODO: add a section to see commands for this package
-  When a button is clicked, show a div containing custom commands to do things like download the package.
-  %>
-  <hr>
-<% end %>
+<%= render @packages %>

@@ -17,16 +17,14 @@ class PackagesController < ApplicationController
       flash[:success] = "Created and published your new package #{params[:name]}!"
       redirect_to root_path
     else
-      # flash[:error] = "Something went wrong when trying to create your package."
-      flash[:error] = @package.errors.full_messages.to_sentence
+      flash[:error] = "Something went wrong when trying to create your package."
       redirect_to new_package_path
     end
   end
 
   def index
-    # TODO: eventually, when the packages range into the thousands, we'll want to only pull out a couple.
-    # This will work for a good amount of time, however.
-    @packages = Package.all
+    # return 20 random packages
+    @packages = Package.order("RANDOM()").limit(20)
   end
 
   def show
