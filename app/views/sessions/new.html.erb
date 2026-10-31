@@ -4,7 +4,7 @@
 
 <%= flash[:alert] %>
 
-<%= form_with url: "/login" do |form| %>
+<%= form_with url: "/session" do |form| %>
   <%= form.label :email %> <br>
   <%= form.email_field :email, autofocus: true %> <br>
 

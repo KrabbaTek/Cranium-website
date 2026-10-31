@@ -11,9 +11,7 @@ Rails.application.routes.draw do
 
   get "/search", to: "packages#search", as: :search
 
-  get "/login", to: "sessions#new", as: :login
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy", as: :logout
+  resource :session, only: %i[ new create destroy ]
 
   get "/signup", to: "users#new", as: :signup
   post "/users", to: "users#create"
@@ -27,6 +25,7 @@ Rails.application.routes.draw do
 
   get "/packages/explore", to: "packages#index", as: :explore_packages
 
+  # routes for the CLI
   namespace :api do
     # install
     get "/install/:name", to: "packages#install"

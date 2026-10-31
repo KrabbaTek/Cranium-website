@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to login_path unless current_user
+    redirect_to "/session/new" unless current_user
   end
 end
