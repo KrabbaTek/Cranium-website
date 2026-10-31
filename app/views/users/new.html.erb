@@ -10,7 +10,7 @@
   </ul>
 <% end %>
 
-<%= form_with url: "/users" do |form| %>
+<%= form_with url: new_user_path do |form| %>
   <%= form.label :name %> <br>
   <%= form.text_field :name, autofocus: true %> <br>
   

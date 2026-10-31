@@ -6,24 +6,23 @@ Rails.application.routes.draw do
   root "pages#home"
 
   get "/thesis", to: "pages#thesis"
-
   get "/tutorial", to: "pages#tutorial"
-
-  get "/search", to: "packages#search", as: :search
 
   resource :session, only: %i[ new create destroy ]
 
-  get "/signup", to: "users#new", as: :signup
-  post "/users", to: "users#create"
-
-  get "/packages", to: "packages#new", as: :new_package
-  post "/packages", to: "packages#create", as: :create_package
-
+  resources :users, only: %i[ new create ]
   get "/users/home", to: "users#home", as: :user_home
 
-  get "/packages/user", to: "packages#show", as: :user_packages
+  resources :packages, only: %i[ index new create show ] do
+    collection do
+      get :search
+    end
+  end
 
-  get "/packages/explore", to: "packages#index", as: :explore_packages
+  # show all packages for a user
+  resources :users, only: [] do
+    resources :packages, only: %i[ index ]
+  end
 
   # routes for the CLI
   namespace :api do

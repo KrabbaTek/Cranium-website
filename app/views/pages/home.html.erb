@@ -11,19 +11,19 @@
   Find a package below
 </h2>
 
-<%= form_with url: search_path, method: :get do |form| %>
+<%= form_with url: search_packages_path, method: :get do |form| %>
   <%= form.text_field :name %>
 
   <%= form.submit "Search" %>
 <% end %>
 
 <p>
-  Or, <%= link_to "explore", explore_packages_path %> all the packages
+  Or, <%= link_to "explore", packages_path %> all the packages
 </p>
 
 <h2>
   If you're here to upload a package, then log in or sign up below.
 </h2>
 
-<%= link_to "Log in", "/session/new" %>
-<%= link_to "Sign up", signup_path %>
+<%= link_to "Log in", new_session_path %>
+<%= link_to "Sign up", new_user_path %>

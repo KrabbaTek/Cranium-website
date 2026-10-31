@@ -2,6 +2,8 @@
 
 <%= link_to "Back", root_path %>
 
+<%# TODO: make a partial for listing packages since I do it in three different places %>
+
 <% @packages.each do |package| %>
   <strong>
     <%= package.name %>

@@ -7,7 +7,7 @@
 
 <%= link_to 'Publish a new package', new_package_path %>
 <br>
-<%= link_to 'See your packages', user_packages_path %>
+<%= link_to 'See your packages', user_packages_path(current_user.id) %>
 
 <br>
 <br>
