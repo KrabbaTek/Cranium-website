@@ -14,9 +14,13 @@
     src: url('sanguine_frost.ttf') format('truetype');
 }
 
+:root {
+    --main-font: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 #title {
-    font-family: 'Cranium', serif;
-    font-size: 100px;
+    font-family: 'Cranium', serif !important;
+    font-size: 100px !important;
 }
 
 body {
@@ -28,3 +32,13 @@ body {
 .description {
     max-width: 600px;
 }
+
+p, input, label, textarea, button, strong {
+    font-family: var(--main-font), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--main-font), sans-serif;
+}
+
+
