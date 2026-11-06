@@ -3,7 +3,7 @@
 module Api
   class PackagesController < ApplicationController
     rate_limit to: 10, within: 1.minute
-    before_action :find_package, except: %i[ omakase random]
+    before_action :find_package, except: %i[ omakase random search ]
 
     def install
       if @package.nil?
@@ -53,6 +53,16 @@ module Api
       }
 
       render json: response
+    end
+
+    def search
+      @packages = Package.where("LOWER(name) LIKE ?", "%#{params[:name].downcase}%")
+
+      if @packages.empty?
+        render status: :not_found
+      else
+        render json: @packages
+      end
     end
 
     private

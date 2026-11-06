@@ -37,5 +37,8 @@ Rails.application.routes.draw do
 
     # clone
     get "/packages/clone/:name", to: "packages#clone_library"
+
+    # search
+    get "/packages/search/:name", to: "packages#search"
   end
 end
